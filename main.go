@@ -8,11 +8,10 @@ import (
 )
 
 var (
-	seed     = flag.Int("seed", 0, "seed for random generator. unix(now) be default")
-	start    = flag.Int("start", 1, "minimum value of random")
-	end      = flag.Int("end", 6, "maximum value of random")
-	n        = flag.Int("n", 1, "number of repeat")
-	norepeat = flag.Bool("norepeat", false, "can values be repeated")
+	seed  = flag.Int("seed", 0, "seed for random generator. unix(now) be default")
+	start = flag.Int("start", 1, "minimum value of random")
+	end   = flag.Int("end", 6, "maximum value of random")
+	n     = flag.Int("n", 1, "number of repeat")
 )
 
 func abs(a int) int {
@@ -34,11 +33,6 @@ func randInterval(l, r int) int {
 	return rand.Intn(abs(r-l)+1) + min(l, r)
 }
 
-func makeRandArray(l, r, n int) []int {
-	var empty string = "" * n
-
-}
-
 func main() {
 	flag.Parse()
 	if *seed == 0 {
@@ -50,12 +44,12 @@ func main() {
 	if *start > *end {
 		fmt.Println("Ошибка! значение start должно быть меньше, чем значение end.")
 	} else {
-		/*for i := 0; i < *n; i++ {
+		for i := 0; i < *n; i++ {
 			fmt.Print(randInterval(*start, *end))
 			if i != *n-1 {
 				fmt.Print(", ")
 			}
 		}
-		fmt.Print("\n")*/
+		fmt.Print("\n")
 	}
 }
